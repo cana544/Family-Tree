@@ -2,13 +2,13 @@
 
 **[Open the family tree](https://cana544.github.io/Family-Tree/)**
 
-An interactive family archive containing 287 people and 83 families, hosted with GitHub Pages.
+An interactive archive of the Anand family, its history and the connections across generations. Hosted with GitHub Pages.
 
 Open `index.html` in a browser. The website works directly from the folder without installing anything or starting a server.
 
-Click a person for details. Use “View family branch” or the small branch symbol to change family context. Search reaches all 287 people. The generations menu controls range and cousins. Drag to pan; scroll or use the buttons to zoom. Home returns to Avinesh Anand, and Fit shows the whole included branch.
+Click a person for details. Use “View family branch” or the small branch symbol to change family context. Search reaches everyone in the archive. The generations menu controls range and cousins. Drag to pan; scroll or use the buttons to zoom. Home returns to Avinesh Anand, and Fit shows the whole included branch.
 
-The website imports 287 people and 83 families from the supplied MyHeritage GEDCOM. Missing facts stay missing. Email, phone, address and account metadata are not part of the generated dataset.
+Family records are imported from a MyHeritage GEDCOM export. Missing facts stay missing. Email, phone, address and account metadata are not part of the generated dataset.
 
 ## Files
 
@@ -22,6 +22,12 @@ The website imports 287 people and 83 families from the supplied MyHeritage GEDC
 node --test --test-isolation=none tests/graph.test.cjs tests/reference.test.cjs tests/geometry.test.cjs
 python -m unittest discover -s tests
 ```
+
+## Updating the live website
+
+This local project is connected to `https://github.com/cana544/Family-Tree.git`. In VS Code, save your changes, commit them, and **Push** or **Sync Changes** to `main`. GitHub Pages automatically deploys the pushed version. Saving or committing locally alone does not update the public website.
+
+Deployment can take a few minutes. Check the repository's Actions tab for the Pages build and deployment status.
 
 ## Hosting
 

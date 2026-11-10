@@ -9,6 +9,7 @@ function avatar(p){return `<span class="avatar">${p.photos?.length?`<img src="${
 let root=people[location.hash.slice(1)]?location.hash.slice(1):START,selected=root,depth=5,cousins=true,zoom=4/7,pan={x:0,y:0},mode='tree',panelOpen=false;
 let levels=new Map(),positions=new Map(),bounds={width:1,height:1},trail=[{root,selected}],lastTrigger=null;
 const viewport=$('viewport');
+document.querySelectorAll('.nav-count').forEach(el=>el.textContent=Object.keys(people).length);
 function transform(){$('scene').style.transform=`translate(${pan.x}px,${pan.y}px) scale(${zoom})`;$('zoom-label').textContent=Math.floor(zoom*100+1e-6)+'%';$('scene').classList.toggle('small-scale',zoom<.8);$('scene').classList.toggle('overview-scale',zoom<.45);}
 function centre(id=selected){const p=positions.get(id)||positions.get(root);if(!p)return;pan={x:viewport.clientWidth/2-(p.x+W/2)*zoom,y:viewport.clientHeight*.60-(p.y+H/2)*zoom};transform();}
 function setZoom(value,anchor){const next=Math.max(1/7,Math.min(2,value)),ratio=next/zoom,rect=viewport.getBoundingClientRect(),x=anchor?anchor.x-rect.left:rect.width/2,y=anchor?anchor.y-rect.top:rect.height/2;pan={x:x-(x-pan.x)*ratio,y:y-(y-pan.y)*ratio};zoom=next;transform();}
